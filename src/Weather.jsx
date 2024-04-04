@@ -9,6 +9,11 @@ const Weather = () => {
   const [weatherIconUrl, setWeatherIconUrl] = useState(''); 
   const [searched, setSearched] = useState(false); // para saber se clicou no botão para pesquisar
   const [error, setError] = useState(null); // Procura erros, para caso encontre, possa mostrar a mensagem de erro
+  const [isCelsius, setIsCelsius] = useState(true); // nesse caso, para saber a unidade de temperatura
+ const convertToFahrenheit = (temperature) => {
+  return (temperature * 9/5) + 32;
+};
+
 
 // busca os dados do clima a partir da OpenWeatherMap
   const fetchData = async () => {
@@ -75,11 +80,12 @@ const Weather = () => {
           <img src={weatherIconUrl} alt="Weather Icon" />
           <h2>{weatherData.name},</h2>
           <h3>{weatherData.sys.country}</h3>
-          <p>Temperatura: {weatherData.main.temp}°C</p>
+          <p>Temperatura: {weatherData.main.temp}°C ({convertToFahrenheit(weatherData.main.temp)}°F)</p>
           <p>Descrição: {weatherData.weather[0].description}</p>
-          <p>Sensação Térmica : {weatherData.main.feels_like}°C</p>
+          <p>Sensação Térmica : {weatherData.main.feels_like}°C ({convertToFahrenheit(weatherData.main.feels_like)}°F)</p>
           <p>Umidade : {weatherData.main.humidity}%</p>
           <p>Vento : {weatherData.wind.speed}m/s</p>
+  
         </div>
       )}
       {!error && !weatherData && searched && (

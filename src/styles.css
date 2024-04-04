@@ -1,0 +1,62 @@
+*{
+    background-image: url('./assets/background.jpg');
+}
+
+.container {
+
+    margin: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.results{
+    margin: 5px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+   
+}
+
+form {
+
+    height: 86px;
+    margin: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 200px;
+  
+    input {
+        color: black;
+        border-radius: 5px;
+        height: 40px;
+        width: 200px;
+    }
+    button:hover {filter: brightness(0.9);
+    }
+}
+  button {
+    background-image: none;
+      background-color: solid black;
+      color: black;
+      border-radius: 5px;
+      height: 40px;
+      width: 200px;
+      cursor: pointer;
+      transition: filter 0.2s;
+
+  }
+
+.bottomText{ 
+    font-size: 10px;
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin: -165px;
+}
